@@ -1,0 +1,22 @@
+import { Component, signal } from "@angular/core";
+
+@Component({
+    selector: 'app-profile',
+    standalone: true, // v21 default
+    templateUrl: './profile.html',
+})
+export class Profile {
+    // 1. Inferred as string
+    myName = signal("Dapo");
+
+    // 2. Explicitly typed for multiple types
+    data = signal<number | string>(30);
+
+    myDetails() {
+        this.myName.set("Segun");
+    }
+
+    sum(a: number, b: number) {
+        console.log(a + b);
+    }
+}
