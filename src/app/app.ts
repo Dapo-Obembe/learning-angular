@@ -1,11 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Login } from './login/login';
-import { Profile } from './profile/profile';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { Comments } from './comments/comments';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Login, Profile],
+  imports: [RouterOutlet, RouterLink, Comments],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -21,5 +20,11 @@ export class App {
 
   alertMe() {
     alert("Title changed!");
+  }
+
+  items = new Array();
+
+  addItem(item: string) {
+    this.items.push(item);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, signal } from "@angular/core";
+import { Component, signal, input, output } from "@angular/core";
 
 @Component({
     selector: 'app-profile',
@@ -18,5 +18,16 @@ export class Profile {
 
     sum(a: number, b: number) {
         console.log(a + b);
+    }
+
+    // Using input() to pass data to another component: parent -> child
+    // It will be passed a s prop where the component is rendered. In this case, in the app.html
+    readonly inputName = input<string>();
+
+    // output(): Child -> Parent
+    readonly addItemEvent = output<string>();
+
+    addItem() {
+        this.addItemEvent.emit('😜');
     }
 }
