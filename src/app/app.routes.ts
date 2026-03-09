@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { Profile } from './profile/profile';
 import { Login } from './login/login';
 import { NotFound } from './not-found/not-found';
+import { ControlFlow } from './control-flow/control-flow';
 
 export const routes: Routes = [
     {
@@ -16,6 +17,10 @@ export const routes: Routes = [
     {
         path: 'login',
         component: Login
+    },
+    {
+        path: 'control-flow',
+        component: ControlFlow
     },
     {
         path: '**',

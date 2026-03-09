@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-3">
+    <input
+      type="checkbox"
+      name="offercode"
+      id="offercode"
+      [checked]="isOfferCodeAvl()"
+      (change)="toggleOfferCode()"
+    />
+    Do you have an offer code?
+  </div>
+
+  @if (isOfferCodeAvl()) {
+    <div class="col-3">
+      <input
+        type="text"
+        name="entercode"
+        id="entercode"
+        class="form-control"
+        placeholder="Enter code here"
+      />
+    </div>
+  }
+</div>
+
+<hr />
+
+<div class="row">
+  <div class="col-3">
+    @if (isSuccessDivVisible()) {
+      <div class="bg-success p-3">Success Div</div>
+    } @else {
+      <div class="bg-danger p-3">Error Div</div>
+    }
+  </div>
+  <div class="col-3">
+    <button class="btn btn-success" (click)="toggleSuccessDiv()">Toggle</button>
+  </div>
+</div>
+
+<hr />
+<div class="row">
+  <div class="col-3">
+    <input type="number" placeholder="%" class="form-control" (input)="updateMark($event)" />
+  </div>
+  <div class="col-3 d-flex">
+    @switch (studentGrade()) {
+      @case ('A') {
+        <strong class="text-success">Student has A Grade</strong>
+      }
+      @case ('B') {
+        <span class="text-secondary">Student has B Grade</span>
+      }
+      @case ('C') {
+        <span class="text-primary">Student has C Grade</span>
+      }
+      @default {
+        <span class="text-danger">Student fails</span>
+      }
+    }
+  </div>
+</div>
+
+<hr />
+<div class="row">
+  <div class="col-3">
+    <ul>
+      @for (item of offerList(); track item.id) {
+        <li>{{ item.description }}</li>
+      } @empty {
+        <li>No offers available right now.</li>
+      }
+    </ul>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of offerList(); track item.id + 1) {
+          <tr>
+            <th>{{ item.id }}</th>
+            <th>{{ item.description }}</th>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
