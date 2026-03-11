@@ -1,0 +1,37 @@
+.theme-wrapper {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --accent-color: #3498db;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.4s ease;
+}
+
+/* When the .dark class is active, override the variables */
+.dark {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --accent-color: #f1c40f;
+}
+
+.content-card {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.toggle-btn {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+}

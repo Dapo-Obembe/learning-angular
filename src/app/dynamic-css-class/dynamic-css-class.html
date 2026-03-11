@@ -1,0 +1,28 @@
+<div [class]="theme()" class="theme-wrapper">
+  <div class="content-card" [class.shadow-lg]="isDark()">
+    <h1>{{ isDark() ? '🌙 Night Mode' : '☀️ Day Mode' }}</h1>
+    <p>Your preference is now saved in the browser's local storage.</p>
+
+    <button class="toggle-btn" (click)="toggleTheme()">
+      Switch to {{ isDark() ? 'Light' : 'Dark' }}
+    </button>
+  </div>
+</div>
+
+<button class="btn" [class.btn-danger]="!isActiveBtn()" [class.bg-success]="isActiveBtn()">
+  Dynamic Button
+</button>
+
+<div class="container mt-4">
+  <p>Progress: {{ percent() }}%</p>
+
+  <div class="progress-bar-container" style="border: 1px solid #ccc; height: 30px">
+    <div
+      [style.width.%]="percent()"
+      [style.background-color]="statusColor()"
+      style="height: 100%; transition: all 0.3s ease"
+    ></div>
+  </div>
+
+  <button class="btn btn-primary mt-3" (click)="increase()">Increase Progress</button>
+</div>

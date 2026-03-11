@@ -3,6 +3,7 @@ import { Profile } from './profile/profile';
 import { Login } from './login/login';
 import { NotFound } from './not-found/not-found';
 import { ControlFlow } from './control-flow/control-flow';
+import { DynamicCssClass } from './dynamic-css-class/dynamic-css-class';
 
 export const routes: Routes = [
     {
@@ -21,6 +22,10 @@ export const routes: Routes = [
     {
         path: 'control-flow',
         component: ControlFlow
+    },
+    {
+        path: 'dynamic-css-class',
+        component: DynamicCssClass
     },
     {
         path: '**',
