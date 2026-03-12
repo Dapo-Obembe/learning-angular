@@ -1,8 +1,11 @@
 import { Component, signal, input, output } from "@angular/core";
+import { FormsModule, ReactiveFormsModule, FormControl, FormGroup } from "@angular/forms";
+import { email } from "@angular/forms/signals";
 
 @Component({
     selector: 'app-profile',
     standalone: true, // v21 default
+    imports: [FormsModule, ReactiveFormsModule],
     templateUrl: './profile.html',
 })
 export class Profile {
@@ -29,5 +32,25 @@ export class Profile {
 
     addItem() {
         this.addItemEvent.emit('😜');
+    }
+
+    // Angular template-driven forms
+    username = 'youngTech';
+    favoriteFramework = signal<string>('');
+
+    showFramework() {
+        alert(`Your favorite is: ${this.favoriteFramework()}`);
+    }
+
+    // REACTIVE FORM HERE.
+    profileForm = new FormGroup({
+        name: new FormControl(''),
+        email: new FormControl(''),
+    });
+
+    handleSubmit() {
+        alert(
+            this.profileForm.value.name + ' | ' + this.profileForm.value.email
+        );
     }
 }

@@ -1,3 +1,38 @@
 <h1>Profile Component</h1>
 <p>My input name is {{ inputName() }}</p>
 <button class="btn" (click)="addItem()">Add Item</button>
+<hr />
+
+<!-- Template-Driven Form-->
+<p>Username: {{ username }}</p>
+<p>{{ username }}'s favorite framework: {{ favoriteFramework() }}</p>
+<label for="framework">Favorite Framework:</label>
+
+<label for="framework">
+  Favorite Framework:
+  <input
+    id="framework"
+    type="text"
+    [ngModel]="favoriteFramework()"
+    (ngModelChange)="favoriteFramework.set($event)"
+  />
+</label>
+<button (click)="showFramework()">Show Framework</button>
+
+<hr />
+<!--REACTIVE FORM-->
+<form [formGroup]="profileForm" (ngSubmit)="handleSubmit()" class="d-flex gap-3">
+  <label>
+    Name
+    <input type="text" formControlName="name" class="form-control" />
+  </label>
+  <label>
+    Email
+    <input type="email" formControlName="email" class="form-control" />
+  </label>
+  <button type="submit">Submit</button>
+</form>
+
+<h2>Profile Form</h2>
+<p>Name: {{ profileForm.value.name }}</p>
+<p>Email: {{ profileForm.value.email }}</p>
